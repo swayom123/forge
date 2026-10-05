@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "forge-engineer"
+version = "0.2.0"
+description = "Controlled repository intelligence for an autonomous software engineer"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "pydantic-settings>=2.5,<3",
+  "sqlalchemy>=2.0,<3",
+  "typer>=0.12,<1",
+  "uvicorn>=0.30,<1",
+]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.27,<1", "mypy>=1.11,<2", "pytest>=8,<10", "ruff>=0.6,<1", "types-requests>=2.32"]
+
+[project.scripts]
+forge = "forge.apps.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/forge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["forge"]
+mypy_path = "src"

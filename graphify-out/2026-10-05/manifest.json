@@ -1,0 +1,182 @@
+{
+  "pyproject.toml": {
+    "mtime": 1791212872.8330142,
+    "ast_hash": "459cc07fd0582aed0b764d05873de3f1",
+    "semantic_hash": ""
+  },
+  "src/forge/__init__.py": {
+    "mtime": 1791210570.2826273,
+    "ast_hash": "12cc3d91c50f82c8baacb71742e15e24",
+    "semantic_hash": ""
+  },
+  "src/forge/agents/__init__.py": {
+    "mtime": 1791210672.48526,
+    "ast_hash": "95b620e6ca82be0c4656767bcec6178c",
+    "semantic_hash": ""
+  },
+  "src/forge/agents/base.py": {
+    "mtime": 1791210672.5452604,
+    "ast_hash": "b0ba84f147581a6a9e1e0383436dc77c",
+    "semantic_hash": ""
+  },
+  "src/forge/apps/__init__.py": {
+    "mtime": 1791210673.118264,
+    "ast_hash": "d88f5e55892bc9cd41e02d3635e49071",
+    "semantic_hash": ""
+  },
+  "src/forge/apps/api.py": {
+    "mtime": 1791212961.3405235,
+    "ast_hash": "2249780852676cb94dbe8dd0dcf69d15",
+    "semantic_hash": ""
+  },
+  "src/forge/apps/cli.py": {
+    "mtime": 1791212935.3523738,
+    "ast_hash": "8a094bd56d4c783f8bd2aa17ac66199f",
+    "semantic_hash": ""
+  },
+  "src/forge/apps/schemas.py": {
+    "mtime": 1791212763.0043824,
+    "ast_hash": "f75defebdbb2ff430a1741d9a3a52920",
+    "semantic_hash": ""
+  },
+  "src/forge/config.py": {
+    "mtime": 1791212935.047372,
+    "ast_hash": "7c44992cc88ae5d5d53a951c7fe2ebd7",
+    "semantic_hash": ""
+  },
+  "src/forge/core/__init__.py": {
+    "mtime": 1791210570.5146286,
+    "ast_hash": "56703e95a4b6ea71f073dd6aa09b2501",
+    "semantic_hash": ""
+  },
+  "src/forge/core/contracts.py": {
+    "mtime": 1791212080.977459,
+    "ast_hash": "81487bd53112c129beed6daf55f6c56c",
+    "semantic_hash": ""
+  },
+  "src/forge/core/database.py": {
+    "mtime": 1791210570.6666298,
+    "ast_hash": "2de511b3b6ac04bf4bce1bd77bd8d705",
+    "semantic_hash": ""
+  },
+  "src/forge/core/models.py": {
+    "mtime": 1791212410.071352,
+    "ast_hash": "59fa118d59f51b1ec7526c6692c27337",
+    "semantic_hash": ""
+  },
+  "src/forge/core/state.py": {
+    "mtime": 1791210570.590629,
+    "ast_hash": "8189ce785f9e772fe7c652747ee9999c",
+    "semantic_hash": ""
+  },
+  "src/forge/logging.py": {
+    "mtime": 1791210570.4376283,
+    "ast_hash": "8efcc856654106a9b391168500150b7a",
+    "semantic_hash": ""
+  },
+  "src/forge/models/__init__.py": {
+    "mtime": 1791210672.621261,
+    "ast_hash": "f2a7b719cd6eb259b48f66599deb3e2c",
+    "semantic_hash": ""
+  },
+  "src/forge/models/provider.py": {
+    "mtime": 1791210672.7052615,
+    "ast_hash": "6bb7338bbc24cde8dc5cff80f3b6fe16",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/__init__.py": {
+    "mtime": 1791210672.9522629,
+    "ast_hash": "bb35c8cb24b0f01a84975718556d1319",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/scanner.py": {
+    "mtime": 1791210673.0342634,
+    "ast_hash": "9697373e311bc91ea73a0c214ae209bd",
+    "semantic_hash": ""
+  },
+  "src/forge/tools/__init__.py": {
+    "mtime": 1791210672.788262,
+    "ast_hash": "8e2d9adf3b14374834038a27b0f07949",
+    "semantic_hash": ""
+  },
+  "src/forge/tools/registry.py": {
+    "mtime": 1791210672.8652623,
+    "ast_hash": "9dfdbcfdb473a26bfa058d577a942e7d",
+    "semantic_hash": ""
+  },
+  "tests/conftest.py": {
+    "mtime": 1791212570.7222762,
+    "ast_hash": "0b88c635ad2183f92584302d30f7970b",
+    "semantic_hash": ""
+  },
+  "tests/test_api.py": {
+    "mtime": 1791212763.2303839,
+    "ast_hash": "0b055369af69c901c52e5eaecf3457f9",
+    "semantic_hash": ""
+  },
+  "tests/test_cli.py": {
+    "mtime": 1791212570.9042773,
+    "ast_hash": "5ca3d4a1db14a63decbea071b6c6f281",
+    "semantic_hash": ""
+  },
+  "tests/test_contracts.py": {
+    "mtime": 1791211414.5816255,
+    "ast_hash": "13c44892668a4bc3c04839ab0799e1aa",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1791212872.9070146,
+    "ast_hash": "839b345f3353533c64e118bc97f59664",
+    "semantic_hash": ""
+  },
+  "docs/architecture.md": {
+    "mtime": 1791212872.9940152,
+    "ast_hash": "dfcd1b519c300c39f17edbc42137ca84",
+    "semantic_hash": ""
+  },
+  "docs/roadmap.md": {
+    "mtime": 1791212873.0780158,
+    "ast_hash": "a17fc65df52fa763f4ccc8d21a3b095c",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/files.py": {
+    "mtime": 1791212935.197373,
+    "ast_hash": "80e67bb251629ff4d30d3cdf927df669",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/indexer.py": {
+    "mtime": 1791212762.8613815,
+    "ast_hash": "980030e2afc0b794b22a7842b3446fdb",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/profiler.py": {
+    "mtime": 1791212578.849323,
+    "ast_hash": "b3993ad8a78e6e82eaf342d0a7f8396b",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/python_adapter.py": {
+    "mtime": 1791212762.7823813,
+    "ast_hash": "ba861ce9be3857d116e758fb08636f54",
+    "semantic_hash": ""
+  },
+  "src/forge/repository/search.py": {
+    "mtime": 1791212762.930382,
+    "ast_hash": "0601ee1f3e622ce024e07eb57560f866",
+    "semantic_hash": ""
+  },
+  "tests/test_repository_intelligence.py": {
+    "mtime": 1791212763.1533833,
+    "ast_hash": "9c3cc133007f5478b1edd8cf8f8a8b3a",
+    "semantic_hash": ""
+  },
+  "docs/repository-intelligence.md": {
+    "mtime": 1791212873.156016,
+    "ast_hash": "0fc449acae7fb0343371aafb5eae0ace",
+    "semantic_hash": ""
+  },
+  "docs/security.md": {
+    "mtime": 1791212873.2370167,
+    "ast_hash": "2f7476e12aadc63bd169e63fce9d5daf",
+    "semantic_hash": ""
+  }
+}
