@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "forge-engineer"
-version = "0.2.0"
-description = "Controlled repository intelligence for an autonomous software engineer"
+version = "0.6.0"
+description = "Controlled engineering plans with bounded verification and repair cycles"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

@@ -4,7 +4,14 @@ from datetime import datetime
 
 from pydantic import BaseModel, Field
 
-from forge.core.state import TaskStatus, TaskType
+from forge.core.state import (
+    ExecutionStatus,
+    PatchOperation,
+    TaskStatus,
+    TaskType,
+    VerificationStatus,
+    WorkspaceStatus,
+)
 
 
 class RegisterRepositoryRequest(BaseModel):
@@ -111,3 +118,121 @@ class ImportResponse(BaseModel):
     line: int
 
     model_config = {"from_attributes": True}
+
+
+class IssueUnderstandingResponse(BaseModel):
+    """Normalized engineering request used by the planner."""
+
+    summary: str
+    task_type: str
+    keywords: tuple[str, ...]
+    explicit_paths: tuple[str, ...]
+    constraints: tuple[str, ...]
+
+    model_config = {"from_attributes": True}
+
+
+class AffectedFileResponse(BaseModel):
+    """An indexed file estimated to be relevant to a task."""
+
+    path: str
+    confidence: str
+    reason: str
+    evidence: tuple[str, ...]
+
+    model_config = {"from_attributes": True}
+
+
+class TaskPlanResponse(BaseModel):
+    """A persisted, index-grounded task plan."""
+
+    task_id: str
+    issue: IssueUnderstandingResponse
+    steps: tuple[str, ...]
+    acceptance_criteria: tuple[str, ...]
+    affected_files: tuple[AffectedFileResponse, ...]
+    validation_commands: tuple[tuple[str, ...], ...]
+    context_fingerprint: str
+    stale: bool
+    created_at: datetime
+    updated_at: datetime
+
+
+class WorkspaceResponse(BaseModel):
+    """An isolated Git worktree allocated to a task."""
+
+    id: str
+    task_id: str
+    path: str
+    base_commit: str
+    status: WorkspaceStatus
+    created_at: datetime
+    removed_at: datetime | None
+
+    model_config = {"from_attributes": True}
+
+
+class ApplyPatchRequest(BaseModel):
+    """One optimistic text-file mutation inside a task workspace."""
+
+    file_path: str = Field(min_length=1, max_length=1000)
+    operation: PatchOperation
+    before_hash: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    content: str | None = Field(default=None, max_length=1_000_000)
+    reason: str = Field(min_length=1, max_length=2000)
+
+
+class PatchResponse(BaseModel):
+    """Immutable audit metadata for an applied workspace mutation."""
+
+    id: str
+    workspace_id: str
+    file_path: str
+    operation: PatchOperation
+    before_hash: str | None
+    after_hash: str | None
+    reason: str
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+class RunCommandRequest(BaseModel):
+    """One exact validation command selected from the persisted task plan."""
+
+    argv: list[str] = Field(min_length=1, max_length=64)
+
+
+class ExecutionResponse(BaseModel):
+    """Persisted output and status of one sandbox command."""
+
+    id: str
+    task_id: str
+    workspace_id: str
+    argv: tuple[str, ...]
+    status: ExecutionStatus
+    exit_code: int | None
+    stdout: str
+    stderr: str
+    duration_ms: int | None
+    timed_out: bool
+    output_truncated: bool
+    started_at: datetime
+    finished_at: datetime | None
+
+
+class VerificationResponse(BaseModel):
+    """One complete planned verification attempt and its command evidence."""
+
+    id: str
+    task_id: str
+    workspace_id: str
+    attempt_number: int
+    status: VerificationStatus
+    patch_fingerprint: str
+    summary: str
+    executions: tuple[ExecutionResponse, ...]
+    failed_attempts: int
+    failed_attempts_remaining: int
+    started_at: datetime
+    finished_at: datetime | None

@@ -130,3 +130,29 @@ class SqlRepositoryIndexer:
             indexed += 1
         self.session.commit()
         return IndexUpdate(indexed, unchanged, len(deleted_paths), errors)
+
+    def is_current(self, repository_id: str, root: Path) -> bool:
+        """Return whether the live profile and Python files match the persisted index."""
+        profile_record = self.session.get(RepositoryProfileRecord, repository_id)
+        if profile_record is None:
+            return False
+        profile = RepositoryProfiler(self.policy).profile(root)
+        if profile_to_json(profile) != profile_record.profile_json:
+            return False
+        indexed = {
+            item.path: item.content_hash
+            for item in self.session.scalars(
+                select(IndexedFile).where(IndexedFile.repository_id == repository_id)
+            )
+        }
+        candidates = {
+            item.relative_path.as_posix(): item
+            for item in iter_safe_files(profile.root, self.policy)
+            if item.relative_path.suffix.lower() in self.adapter.extensions
+        }
+        if indexed.keys() != candidates.keys():
+            return False
+        return all(
+            indexed[path] == hashlib.sha256(safe_file.read_bytes()).hexdigest()
+            for path, safe_file in candidates.items()
+        )

@@ -9,6 +9,7 @@ class TaskStatus(StrEnum):
     PENDING = "PENDING"
     READY = "READY"
     RUNNING = "RUNNING"
+    VERIFIED = "VERIFIED"
     BLOCKED = "BLOCKED"
     FAILED = "FAILED"
     COMPLETED = "COMPLETED"
@@ -27,3 +28,36 @@ class TaskType(StrEnum):
     REVIEW = "REVIEW"
     DOCUMENT = "DOCUMENT"
     VERIFY = "VERIFY"
+
+
+class WorkspaceStatus(StrEnum):
+    """Lifecycle status of an isolated task workspace."""
+
+    ACTIVE = "ACTIVE"
+    REMOVED = "REMOVED"
+
+
+class PatchOperation(StrEnum):
+    """Supported audited file mutations."""
+
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
+
+
+class ExecutionStatus(StrEnum):
+    """Lifecycle status of a persisted sandbox execution."""
+
+    RUNNING = "RUNNING"
+    FINISHED = "FINISHED"
+    TIMED_OUT = "TIMED_OUT"
+    ERROR = "ERROR"
+
+
+class VerificationStatus(StrEnum):
+    """Outcome of one complete planned verification gate run."""
+
+    RUNNING = "RUNNING"
+    PASSED = "PASSED"
+    FAILED = "FAILED"
+    ERROR = "ERROR"
